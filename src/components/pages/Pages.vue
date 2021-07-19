@@ -39,6 +39,7 @@
 
 <script>
 import $ from "jquery";
+import Pages from '../../../static/pages.json'
 
 export default {
   mounted() {
@@ -57,33 +58,11 @@ export default {
         .draw();
     });
   },
-  data() {
+  data () {
     return {
-      pages: [
-        {
-          id: "3",
-          title: "Serviços",
-          author: "We Are Innov",
-          created_at: "31-01-2021 16:26:45",
-          updated_at: "31-01-202 16:26:45",
-        },
-        {
-          id: "2",
-          title: "Sobre Nós",
-          author: "We Are Innov",
-          created_at: "29-01-2021 11:45:14",
-          updated_at: "29-01-2021 11:45:14",
-        },
-        {
-          id: "1",
-          title: "Homepage",
-          author: "We Are Innov",
-          created_at: "29-01-2021 11:36:14",
-          updated_at: "29-01-2021 11:36:14",
-        },
-      ],
-    };
-  },
+			pages: Pages
+    }
+  }
 };
 </script>
 

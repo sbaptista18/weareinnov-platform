@@ -35,6 +35,7 @@
 
 <script>
 import $ from "jquery";
+import Profiles from '../../../static/user_profiles.json'
 
 export default {
   mounted() {
@@ -55,24 +56,7 @@ export default {
   },
   data() {
     return {
-      profiles: [
-        {
-          id: "1",
-          name: "Administrador",
-        },
-        {
-          id: "2",
-          name: "Autor",
-        },
-        {
-          id: "3",
-          name: "Editor",
-        },
-        {
-          id: "4",
-          name: "Subscritor",
-        },
-      ],
+      profiles: Profiles
     };
   },
 };
