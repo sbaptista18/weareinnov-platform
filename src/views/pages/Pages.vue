@@ -39,7 +39,6 @@
 
 <script>
 import $ from "jquery";
-import Pages from '../../../static/pages.json'
 
 export default {
   mounted() {
@@ -58,9 +57,14 @@ export default {
         .draw();
     });
   },
-  data () {
-    return {
-			pages: Pages
+  // data () {
+  //   return {
+	// 		pages: Pages
+  //   }
+  // },
+  computed: {
+    pages() {
+      return this.$store.getters.getPages;
     }
   }
 };

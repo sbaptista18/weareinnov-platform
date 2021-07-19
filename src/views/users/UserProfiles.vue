@@ -2,30 +2,26 @@
   <div class="pages">
     <div class="row">
       <div class="col-6">
-        <h1>Páginas</h1>
+        <h1>Perfis de utilizador</h1>
       </div>
       <div class="col-6 d-flex flex-row-reverse align-items-center">
-        <button><router-link to="/add-page">Adicionar página</router-link></button>
+        <button><router-link to="/add-user-profile">Adicionar perfil</router-link></button>
       </div>
     </div>
     <div class="row">
-      <table class="table table-hover table-bordered" id="pages-list">
+      <table class="table table-hover table-bordered" id="user-profiles">
         <thead>
           <tr>
-            <th>Título</th>
-            <th>Autor</th>
-            <th>Data</th>
+            <th>Perfil</th>
             <th></th>
           </tr>
         </thead>
         <tbody>
-          <tr v-for="page in pages" :key="page.id">
-            <td>{{ page.title }}</td>
-            <td>{{ page.author }}</td>
-            <td>Publicado em: {{ page.created_at }}</td>
+          <tr v-for="profile in profiles" :key="profile.id">
+            <td>{{ profile.name }}</td>
             <td>
               <button class="edit">
-                <router-link :to="{ name: 'EditPage', params: {id: page.id} }"
+                <router-link :to="{ path: '/edit-user-profile', query: { id: profile.id } }"
                   >Editar</router-link
                 ></button
               ><button class="delete">Apagar</button>
@@ -39,30 +35,30 @@
 
 <script>
 import $ from "jquery";
-import Pages from '../../../static/pages.json'
+import Profiles from '../../../static/user_profiles.json'
 
 export default {
   mounted() {
-    $("#pages-list").DataTable({
-      order: [[2, "desc"]],
+    $("#user-profiles").DataTable({
+      order: [[0, "asc"]],
       language: {
         url: '/datatables_pt-PT.json'
       }
     });
 
-    $("#pages-list tbody").on("click", ".delete", function() {
-      var table = $("#pages-list").DataTable();
+    $("#user-profiles tbody").on("click", ".delete", function() {
+      var table = $("#user-profiles").DataTable();
       table
         .row($(this).parents("tr"))
         .remove()
         .draw();
     });
   },
-  data () {
+  data() {
     return {
-			pages: Pages
-    }
-  }
+      profiles: Profiles
+    };
+  },
 };
 </script>
 
