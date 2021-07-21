@@ -57,11 +57,6 @@ export default {
         .draw();
     });
   },
-  // data () {
-  //   return {
-	// 		pages: Pages
-  //   }
-  // },
   computed: {
     pages() {
       return this.$store.getters.getPages;
