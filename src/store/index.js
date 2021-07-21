@@ -75,6 +75,9 @@ export default createStore({
     addPage(state, item) {
       state.pages.unshift(item);
     },
+    addUser(state, item) {
+      state.users.unshift(item);
+    },
   },
   actions: {},
   modules: {},
@@ -84,6 +87,12 @@ export default createStore({
     },
     pageCount(state) {
       return state.pages.length;
+    },
+    getUSers(state) {
+      return state.users;
+    },
+    usersCount(state) {
+      return state.users.length;
     },
   },
 });
