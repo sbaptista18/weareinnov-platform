@@ -97,6 +97,11 @@ export default createStore({
     addPage(state, item) {
       state.pages.unshift(item);
     },
+    deletePage(state, item){
+      var index = state.pages.findIndex(page => page.id == item);
+      console.log(index);
+      state.pages.splice(index, 1);
+    },
     addUser(state, item) {
       state.users.unshift(item);
     },
@@ -104,7 +109,7 @@ export default createStore({
       state.userProfiles.unshift(item);
     },
     deleteUserProfile(state, item){
-      var index = state.userProfiles.findIndex(i => i.id == item.id);
+      var index = state.userProfiles.findIndex(i => i.id == item);
       state.userProfiles.splice(index, 1);
     }
   },

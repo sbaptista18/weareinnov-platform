@@ -28,7 +28,7 @@
                 <router-link :to="{ name: 'EditPage', params: {id: page.id} }"
                   >Editar</router-link
                 ></button
-              ><button class="delete">Apagar</button>
+              ><button @click="deletePage(page.id)" class="delete">Apagar</button>
             </td>
           </tr>
         </tbody>
@@ -56,6 +56,11 @@ export default {
         .remove()
         .draw();
     });
+  },
+  methods: {
+    deletePage(page) {
+        this.$store.commit('deletePage', page);
+    }
   },
   computed: {
     pages() {

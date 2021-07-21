@@ -52,8 +52,6 @@ export default {
         .row($(this).parents("tr"))
         .remove()
         .draw();
-
-      this.$store.commit('deleteUserProfile', $(this).attr('data-profile-id'));
     });
   },
   methods: {
