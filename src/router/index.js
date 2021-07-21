@@ -48,12 +48,9 @@ const routes = [
     component: () => import(/* webpackChunkName: "AddUserProfile" */ '@/views/users/AddUserProfile.vue')
   },
   {
-    path: '/edit-user-profile',
+    path: '/edit-user-profile/:id',
     name: 'EditUserProfile',
     component: () => import(/* webpackChunkName: "EditUserProfile" */ '@/views/users/EditUserProfile.vue'),
-    props(route) {
-      return {  id: route.query.id }
-    }
   },
   {
     path: '/options',
