@@ -68,6 +68,24 @@ export default createStore({
           email: "silvia.baptista@weareinnov.pt",
           profile: "Administrador"
         }
+      ],
+      userProfiles: [
+        {
+          id: 1,
+          name: "Administrador"
+        },
+        {
+          id: 2,
+          name: "Autor"
+        },
+        {
+          id: 3,
+          name: "Editor"
+        },
+        {
+          id: 4,
+          name: "Subscritor"
+        }
       ]
     };
   },
@@ -77,6 +95,9 @@ export default createStore({
     },
     addUser(state, item) {
       state.users.unshift(item);
+    },
+    addUserProfile(state, item) {
+      state.userProfiles.unshift(item);
     },
   },
   actions: {},
@@ -93,6 +114,12 @@ export default createStore({
     },
     usersCount(state) {
       return state.users.length;
+    },
+    getUserProfiles(state) {
+      return state.userProfiles;
+    },
+    userProfilesCount(state) {
+      return state.userProfiles.length;
     },
   },
 });

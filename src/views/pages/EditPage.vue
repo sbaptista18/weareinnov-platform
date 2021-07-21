@@ -27,13 +27,13 @@ import store from '../../store/index'
 export default {
   data(){
     return {
-      pageID: this.$route.params.id
+      pageID: String(this.$route.params.id)
     }
   },
   computed: {
     page(){
       return store.state.pages.find(
-        page => page.id === this.pageID
+        page => String(page.id) === this.pageID
       )
     }
   }
