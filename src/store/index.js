@@ -10,8 +10,8 @@ export default createStore({
           slug: "servicos",
           content: 'conteúdo da pagina "Serviços"',
           author: "We Are Innov",
-          created_at: "2021-01-31 16:26:45",
-          updated_at: "2021-01-31 16:26:45",
+          created_at: "31/01/2021 16:26:45",
+          updated_at: "31/01/2021 16:26:45",
         },
         {
           id: "2",
@@ -19,8 +19,8 @@ export default createStore({
           slug: "sobre-nos",
           content: 'conteúdo da pagina "Sobre Nós"',
           author: "We Are Innov",
-          created_at: "2021-01-29 11:45:14",
-          updated_at: "2021-01-29 11:45:14",
+          created_at: "29/01/2021 11:45:14",
+          updated_at: "29/01/2021 11:45:14",
         },
         {
           id: "1",
@@ -28,8 +28,8 @@ export default createStore({
           slug: "homepage",
           content: 'conteúdo da pagina "Homepage"',
           author: "We Are Innov",
-          created_at: "2021-01-29 11:36:14",
-          updated_at: "2021-01-29 11:36:14",
+          created_at: "29/01/2021 11:36:14",
+          updated_at: "29/01/2021 11:36:14",
         },
       ],
     };

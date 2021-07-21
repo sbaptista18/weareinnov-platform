@@ -30,8 +30,8 @@ export default {
       slug: '',
       content: '',
       author: '',
-      created_at: '',
-      updated_at: ''
+      created_at: this.getTodayDate(),
+      updated_at: this.getTodayDate()
     };
   },
   methods: {
@@ -40,15 +40,30 @@ export default {
       this.id = id;
       this.title = title;
       this.content = content;
+
+      this.slug = title.toLowerCase().replace(/[^\w ]+/g,'').replace(/ +/g,'-');
+
       this.$store.commit("addPage", { id, title, slug, content, author, created_at, updated_at });
 
       setTimeout(() => {
         this.$router.push('/pages');
       }, 100);
+    },
+    getTodayDate: function(){
+      var today = new Date();
+      var dd = String(today.getDate()).padStart(2, '0');
+      var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+      var yyyy = today.getFullYear();
+      var HH = today.getHours();
+      var ii = today.getMinutes();
+      var ss = today.getSeconds();
+
+      today = mm + '/' + dd + '/' + yyyy + ' ' + HH + ':' + ii + ':' + ss;
+      return today;
     }
   },
   computed: {
-    pages: function() { // computed property will be updated when async call resolves
+    pages: function() {
       return this.$store.state.pages;
     }
   }
