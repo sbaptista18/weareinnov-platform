@@ -34,12 +34,12 @@ const routes = [
   {
     path: '/add-user',
     name: 'AddUser',
-    component: () => import('@/views/users/AddUser.vue')
+    component: () => import(/* webpackChunkName: "AddUser" */ '@/views/users/AddUser.vue')
   },
   {
     path: '/edit-user',
     name: 'EditUser',
-    component: () => import('@/views/users/EditUser.vue'),
+    component: () => import(/* webpackChunkName: "EditUser" */ '@/views/users/EditUser.vue'),
     props(route) {
       return {  id: route.query.id }
     }
@@ -47,17 +47,17 @@ const routes = [
   {
     path: '/user-profiles',
     name: 'UserProfiles',
-    component: () => import('@/views/users/UserProfiles.vue')
+    component: () => import(/* webpackChunkName: "UserProfiles" */ '@/views/users/UserProfiles.vue')
   },
   {
     path: '/add-user-profile',
     name: 'AddUserProfile',
-    component: () => import('@/views/users/AddUserProfile.vue')
+    component: () => import(/* webpackChunkName: "AddUserProfile" */ '@/views/users/AddUserProfile.vue')
   },
   {
     path: '/edit-user-profile',
     name: 'EditUserProfile',
-    component: () => import('@/views/users/EditUserProfile.vue'),
+    component: () => import(/* webpackChunkName: "EditUserProfile" */ '@/views/users/EditUserProfile.vue'),
     props(route) {
       return {  id: route.query.id }
     }
@@ -65,12 +65,12 @@ const routes = [
   {
     path: '/options',
     name: 'Options',
-    component: () => import('@/views/options/Options.vue')
+    component: () => import(/* webpackChunkName: "Options" */ '@/views/options/Options.vue')
   },
   {
     path: '/tools',
     name: 'Tools',
-    component: () => import('@/views/tools/Tools.vue')
+    component: () => import(/* webpackChunkName: "Tools" */ '@/views/tools/Tools.vue')
   }
 ]
 
