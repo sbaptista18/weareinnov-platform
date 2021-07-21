@@ -99,11 +99,14 @@ export default createStore({
     },
     deletePage(state, item){
       var index = state.pages.findIndex(page => page.id == item);
-      console.log(index);
       state.pages.splice(index, 1);
     },
     addUser(state, item) {
       state.users.unshift(item);
+    },
+    deleteUser(state, item){
+      var index = state.users.findIndex(i => i.id == item);
+      state.users.splice(index, 1);
     },
     addUserProfile(state, item) {
       state.userProfiles.unshift(item);

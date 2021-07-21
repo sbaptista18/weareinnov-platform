@@ -30,7 +30,7 @@
                 <router-link :to="{ name: 'EditUser', params: { id: user.id } }"
                   >Editar</router-link
                 ></button
-              ><button class="delete">Apagar</button>
+              ><button @click="deleteUser(user.id)" class="delete">Apagar</button>
             </td>
           </tr>
         </tbody>
@@ -58,6 +58,11 @@ export default {
         .remove()
         .draw();
     });
+  },
+  methods: {
+    deleteUser(user) {
+        this.$store.commit('deleteUser', user);
+    }
   },
   computed: {
     users() {
