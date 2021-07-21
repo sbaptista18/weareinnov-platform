@@ -1,7 +1,23 @@
 <template>
-  <div class="col-12 d-flex">
-    Página: {{ page.title }}
-    Slug: {{ page.slug }}
+  <div class="row">
+    <div class="col-12">
+      <h1>{{ page.title }}</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 d-flex">
+      <input v-model="page.title" placeholder="Insira aqui o nome da página">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 d-flex">
+      <textarea v-model="page.content" name="" id="" cols="30" rows="10" placeholder="Insira aqui o conteúdo da página"></textarea>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 d-flex">
+      <button class="btn btn-success">Guardar</button>
+    </div>
   </div>
 </template>
 
@@ -23,3 +39,8 @@ export default {
   }
 }
 </script>
+<style scoped>
+h1 {
+  text-align: left;
+}
+</style>
