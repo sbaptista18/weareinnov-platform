@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    <div class="col-12">
+    <div class="col-12 d-flex">
       <h1>{{ page.title }}</h1>
     </div>
   </div>

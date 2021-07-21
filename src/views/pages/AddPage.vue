@@ -25,7 +25,7 @@
 export default {
   data() {
     return {
-      id: String(Number(this.$store.state.pages[0].id) + 1),
+      id: Number(this.$store.state.pages[0].id) + 1,
       title: '',
       slug: '',
       content: '',

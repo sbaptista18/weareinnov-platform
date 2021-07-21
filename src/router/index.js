@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import WelcomeMsg from '@/views/Home.vue'
-// import EditPage from '@/views/pages/EditPage.vue'
 
 const routes = [
   {
@@ -11,9 +10,6 @@ const routes = [
   {
     path: '/pages',
     name: 'Pages',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "Pages" */ '@/views/pages/Pages.vue')
   },
   {
@@ -37,12 +33,9 @@ const routes = [
     component: () => import(/* webpackChunkName: "AddUser" */ '@/views/users/AddUser.vue')
   },
   {
-    path: '/edit-user',
+    path: '/edit-user/:id',
     name: 'EditUser',
-    component: () => import(/* webpackChunkName: "EditUser" */ '@/views/users/EditUser.vue'),
-    props(route) {
-      return {  id: route.query.id }
-    }
+    component: () => import(/* webpackChunkName: "EditUser" */ '@/views/users/EditUser.vue')
   },
   {
     path: '/user-profiles',

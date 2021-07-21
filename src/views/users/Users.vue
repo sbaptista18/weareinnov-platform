@@ -27,7 +27,7 @@
             <td>{{ user.profile }}</td>
             <td>
               <button class="edit">
-                <router-link :to="{ path: '/edit-user', query: { id: user.id } }"
+                <router-link :to="{ name: 'EditUser', params: { id: user.id } }"
                   >Editar</router-link
                 ></button
               ><button class="delete">Apagar</button>
@@ -41,7 +41,6 @@
 
 <script>
 import $ from "jquery";
-import Users from '../../../static/users.json'
 
 export default {
   mounted() {
@@ -60,11 +59,11 @@ export default {
         .draw();
     });
   },
-  data() {
-    return {
-      users: Users
-    };
-  },
+  computed: {
+    users() {
+      return this.$store.getters.getUsers;
+    }
+  }
 };
 </script>
 
