@@ -11,7 +11,7 @@
   </div>
   <div class="row">
     <div class="col-12 d-flex">
-      <button class="btn btn-success">Guardar</button>
+      <button @click="updateUserProfile" class="btn btn-success">Guardar</button>
     </div>
   </div>
 </template>
@@ -23,6 +23,13 @@ export default {
   data(){
     return {
       userProfileID: String(this.$route.params.id)
+    }
+  },
+  methods: {
+    updateUserProfile: function(){
+      setTimeout(() => {
+        this.$router.push('/user-profiles');
+      }, 100);
     }
   },
   computed: {
