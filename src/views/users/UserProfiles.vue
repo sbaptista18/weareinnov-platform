@@ -24,7 +24,7 @@
                 <router-link :to="{ name: 'EditUserProfile', params: {id: profile.id} }"
                   >Editar</router-link
                 ></button
-              ><button class="delete">Apagar</button>
+              ><button @click="deleteUserProfile(profile.id)" class="delete">Apagar</button>
             </td>
           </tr>
         </tbody>
@@ -46,12 +46,20 @@ export default {
     });
 
     $("#user-profiles tbody").on("click", ".delete", function() {
+
       var table = $("#user-profiles").DataTable();
       table
         .row($(this).parents("tr"))
         .remove()
         .draw();
+
+      this.$store.commit('deleteUserProfile', $(this).attr('data-profile-id'));
     });
+  },
+  methods: {
+    deleteUserProfile(profile) {
+        this.$store.commit('deleteUserProfile', profile);
+    }
   },
   computed: {
     profiles() {

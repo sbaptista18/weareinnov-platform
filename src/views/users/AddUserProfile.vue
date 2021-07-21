@@ -11,7 +11,7 @@
   </div>
   <div class="row">
     <div class="col-12 d-flex">
-      <button @click="addPage" class="btn btn-success">Guardar</button>
+      <button @click="addUserProfile" class="btn btn-success">Guardar</button>
     </div>
   </div>
 </template>
@@ -22,15 +22,17 @@ export default {
     return {
       id: Number(this.$store.state.userProfiles[0].id) + 1,
       name: '',
+      slug: ''
     };
   },
   methods: {
-    addPage: function() {
-      const { id, name } = this;
+    addUserProfile: function() {
+      const { id, name, slug } = this;
       this.id = id;
       this.name = name;
+      this.slug = name.toLowerCase().replace(/[^\w ]+/g,'').replace(/ +/g,'-');
 
-      this.$store.commit("addUserProfile", { id, name });
+      this.$store.commit("addUserProfile", { id, name, slug });
 
       setTimeout(() => {
         this.$router.push('/user-profiles');

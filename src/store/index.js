@@ -71,20 +71,24 @@ export default createStore({
       ],
       userProfiles: [
         {
-          id: 1,
-          name: "Administrador"
-        },
-        {
-          id: 2,
-          name: "Autor"
+          id: 4,
+          name: "Subscritor",
+          slug: "subscritor"
         },
         {
           id: 3,
-          name: "Editor"
+          name: "Editor",
+          slug: "editor"
         },
         {
-          id: 4,
-          name: "Subscritor"
+          id: 2,
+          name: "Autor",
+          slug: "autor"
+        },
+        {
+          id: 1,
+          name: "Administrador",
+          slug: "administrador"
         }
       ]
     };
@@ -99,6 +103,10 @@ export default createStore({
     addUserProfile(state, item) {
       state.userProfiles.unshift(item);
     },
+    deleteUserProfile(state, item){
+      var index = state.userProfiles.findIndex(i => i.id == item.id);
+      state.userProfiles.splice(index, 1);
+    }
   },
   actions: {},
   modules: {},
