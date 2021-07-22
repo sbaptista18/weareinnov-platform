@@ -90,10 +90,39 @@ export default createStore({
           name: "Administrador",
           slug: "administrador"
         }
+      ],
+      mediaFiles: [
+        {
+          id: 2,
+          file_name: "41457989_10156479403167976_1475897560592809984_n.jpg",
+          uploaded_on: '04-06-2021 às 18:03:44',
+          file_type: 'image/jpeg',
+          file_size: 76,
+          title: 'Imagem 2',
+          image: ''
+        },
+        {
+          id: 1,
+          file_name: "IMG_20210327_162350-scaled.jpg",
+          uploaded_on: '04-06-2021 às 18:03:44',
+          file_type: 'image/jpeg',
+          file_size: 193,
+          title: 'Imagem 1',
+          image: ''
+        }
       ]
     };
   },
   mutations: {
+    //files mutations
+    addFile(state, item) {
+      state.mediaFiles.unshift(item);
+    },
+    deleteFile(state, item){
+      var index = state.mediaFiles.findIndex(file => file.id == item);
+      state.mediaFiles.splice(index, 1);
+    },
+    //pages mutations
     addPage(state, item) {
       state.pages.unshift(item);
     },
@@ -101,6 +130,7 @@ export default createStore({
       var index = state.pages.findIndex(page => page.id == item);
       state.pages.splice(index, 1);
     },
+    //users mutations
     addUser(state, item) {
       state.users.unshift(item);
     },
@@ -108,6 +138,7 @@ export default createStore({
       var index = state.users.findIndex(i => i.id == item);
       state.users.splice(index, 1);
     },
+    //user profiles mutations
     addUserProfile(state, item) {
       state.userProfiles.unshift(item);
     },
@@ -119,18 +150,28 @@ export default createStore({
   actions: {},
   modules: {},
   getters: {
+    //pages getters
+    getFiles(state) {
+      return state.mediaFiles;
+    },
+    filesCount(state) {
+      return state.mediaFiles.length;
+    },
+    //pages getters
     getPages(state) {
       return state.pages;
     },
     pageCount(state) {
       return state.pages.length;
     },
+    //users getters
     getUsers(state) {
       return state.users;
     },
     usersCount(state) {
       return state.users.length;
     },
+    //user profiles getters
     getUserProfiles(state) {
       return state.userProfiles;
     },

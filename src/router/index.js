@@ -8,6 +8,16 @@ const routes = [
     component: WelcomeMsg
   },
   {
+    path: '/files',
+    name: 'Files',
+    component: () => import(/* webpackChunkName: "Pages" */ '@/views/media/Files.vue')
+  },
+  {
+    path: '/add-file',
+    name: 'AddFile',
+    component: () => import(/* webpackChunkName: "AddPage" */ '@/views/media/AddFile.vue')
+  },
+  {
     path: '/pages',
     name: 'Pages',
     component: () => import(/* webpackChunkName: "Pages" */ '@/views/pages/Pages.vue')

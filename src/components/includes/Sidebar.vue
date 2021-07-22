@@ -29,6 +29,38 @@
         class="nav-link"
         href="#"
         data-toggle="collapse"
+        data-target="#collapseMedia"
+        aria-expanded="true"
+        aria-controls="collapseMedia"
+      >
+        <i class="fas fa-photo-video"></i>
+        <span>Multimédia</span>
+      </a>
+      <div
+        id="collapseMedia"
+        class="collapse"
+        aria-labelledby="headingPages"
+        data-parent="#sidebar"
+      >
+        <div class="bg-white py-2 collapse-inner rounded">
+          <router-link to="/add-file" class="collapse-item">
+            <span>Adicionar</span>
+          </router-link>
+          <router-link to="/files" class="collapse-item">
+            <span>Biblioteca</span>
+          </router-link>
+        </div>
+      </div>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider" />
+
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        href="#"
+        data-toggle="collapse"
         data-target="#collapsePaginas"
         aria-expanded="true"
         aria-controls="collapsePaginas"
