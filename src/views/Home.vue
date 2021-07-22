@@ -8,7 +8,7 @@
 <script>
 // @ is an alias to /src
 import Logo from "@/assets/logo-black.svg";
-import WelcomeMsg from '@/components/WelcomeMsg.vue'
+import WelcomeMsg from '@/views/WelcomeMsg.vue'
 
 export default {
   data() {
