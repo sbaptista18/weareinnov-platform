@@ -61,14 +61,20 @@ export default {
       var seconds = "0" + date.getSeconds();
       var formattedTime = day.substr(-2) + '-' + month.substr(-2) + '-' + year + ' às ' + hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
 
+      var imgTitle = this.title == '' ? file.name.split('.')[0] : this.title;
+
       this.file_name = file.name;
-      this.title == '' ? file.name.split('.')[0] : this.title;
+      this.title = imgTitle;
       this.file_size = file.size;
       this.file_type = file.type;
       this.uploaded_on = formattedTime;      
     },
     saveImage: function(){
       this.$store.commit("addFile", this.$data);
+
+      setTimeout(() => {
+        this.$router.push('/files');
+      }, 100);
     }
   },
   computed: {
