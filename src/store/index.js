@@ -260,6 +260,7 @@ export default createStore({
           for (let u in users) {
             const user = users[u]
             commit('storeUser', user)
+            console.log(data);
           }
           // commit('storeUser', users[users.length-1])
         })
