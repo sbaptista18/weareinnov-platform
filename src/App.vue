@@ -24,6 +24,9 @@ export default {
     sidebar: Sidebar,
     contentWrapper: Content,
   },
+  created(){
+    this.$store.dispatch('tryAutoLogin')
+  }
 };
 </script>
 

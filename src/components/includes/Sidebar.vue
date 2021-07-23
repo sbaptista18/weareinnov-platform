@@ -1,5 +1,5 @@
 <template>
-  <div id="sidebar" class="col-lg-2 col-sm-3 col-xs-3 sidebar">
+  <div id="sidebar" class="col-lg-2 col-sm-3 col-xs-3 sidebar" v-show="nav == true">
     <!-- Sidebar - Brand -->
     <router-link
       to="/"
@@ -86,7 +86,7 @@
     </li>
 
     <!-- Divider -->
-    <hr class="sidebar-divider" />
+    <!-- <hr class="sidebar-divider" />
 
     <li class="nav-item">
       <a
@@ -118,7 +118,7 @@
           </router-link>
         </div>
       </div>
-    </li>
+    </li> -->
 
     <!-- Divider -->
     <hr class="sidebar-divider" />
@@ -197,6 +197,7 @@ export default {
   data() {
     return {
       logo: Logo,
+      nav: true
     };
   },
   methods: {
@@ -273,6 +274,15 @@ export default {
   mounted() {
     this.toggleSideBar();
   },
+  watch: {
+    '$route' () {
+      if (this.$route.path === '/signin' || this.$route.path === '/signup') {
+        this.nav = false
+      } else {
+        this.nav = true
+      }  
+    }
+  }
 };
 </script>
 

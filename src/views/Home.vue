@@ -19,6 +19,14 @@ export default {
   name: 'Painel',
   components: {
     WelcomeMsg
-  }
+  },
+  created(){
+    this.$store.dispatch('fetchUser')
+  },
+  computed: {
+    name(){
+      return !this.$store.getters.user ? false : this.$store.getters.user.name
+    }
+  },
 }
 </script>
