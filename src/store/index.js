@@ -204,7 +204,8 @@ export default createStore({
           // console.log(res);
           commit('authUser', {
             token: res.data.idToken,
-            userId: res.data.localId
+            userId: res.data.localId,
+            user_email: res.data.email
           })
           const now = new Date();
           const expirationDate = new Date(now.getTime() + res.data.expiresIn * 1000)
@@ -268,8 +269,6 @@ export default createStore({
             if(user.email == state.user_email) {
               commit('storeUser', user)
             }
-            
-            // console.log('user data: ', user.email);
           }
         })
         .catch(error => console.log(error))
