@@ -1,0 +1,13 @@
+instalar node
+instalar vue cli globalmente: npm install -g @vue/cli
+verificar versao: vue --version
+update vue cli: npm update -g @vue/cli
+criar projecto: vue create <nome-da-app>
+pick a preset: manually select features
+escolher: versao 3 e o restante é default
+
+trabalhar na pasta src
+
+
+
+

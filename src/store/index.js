@@ -116,7 +116,8 @@ export default createStore({
       ],
       idToken: null,
       userId: null,
-      user: null
+      user: null,
+      user_email: null
     };
   },
   mutations: {
@@ -155,14 +156,17 @@ export default createStore({
     authUser (state, userData) {
       state.idToken = userData.token
       state.userId = userData.userId
+      state.user_email = userData.user_email
     },
     storeUser (state, user) {
       state.user = user
+      // state.user_email = state.user.email
     },
     clearAuthData (state) {
       state.idToken = null
       state.userId = null
       state.user = null
+      state.user_email = null
     }
   },
   actions: {
@@ -219,10 +223,11 @@ export default createStore({
         returnSecureToken: true
       })
         .then(res => {
-          // console.log(res.data);
+          // console.log('login user: ', res.data);
           commit('authUser', {
             token: res.data.idToken,
-            userId: res.data.localId
+            userId: res.data.localId,
+            user_email: res.data.email
           })
           const now = new Date();
           const expirationDate = new Date(now.getTime() + res.data.expiresIn * 1000)
@@ -259,10 +264,13 @@ export default createStore({
           }
           for (let u in users) {
             const user = users[u]
-            commit('storeUser', user)
-            console.log(data);
+
+            if(user.email == state.user_email) {
+              commit('storeUser', user)
+            }
+            
+            // console.log('user data: ', user.email);
           }
-          // commit('storeUser', users[users.length-1])
         })
         .catch(error => console.log(error))
     },
